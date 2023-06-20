@@ -8,7 +8,6 @@ describe('createUser', () => {
 	beforeEach(() => {
 		req = {
 			body: {
-				// Mock the request body with valid user data
 				email: 'test@example.com',
 				name: 'John',
 				last_name: 'Doe',
@@ -44,7 +43,6 @@ describe('createUser', () => {
 	});
 
 	it('should return 500 if an error occurs during user creation', async () => {
-		// Modify the req.body to trigger an error during user creation
 		req.body = null;
 
 		await createUser(req, res);
