@@ -11,7 +11,6 @@ export const createUser = async (req: Request, res: Response) => {
 		const requiredProps: (keyof IUser)[] = USER_REQUIRE_PROPS;
 
 		if (!isIUser(req.body, requiredProps)) {
-			console.log(req.body);
 			res.status(400).send({ message: 'Datos no válidos.', data: null });
 		} else {
 			const newUser: IUser = {
