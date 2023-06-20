@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { router } from './routes';
 import dotenv from 'dotenv';
+import { notFound } from './middlewares/notFound';
+import { handleError } from './middlewares/handleError';
 
 dotenv.config();
 
@@ -21,6 +23,9 @@ app.use(
 );
 
 app.use(router);
+
+app.use(notFound);
+app.use(handleError);
 
 app.listen(PORT, () => {
 	console.log(`SERVER ON PORT --> ${PORT}`);
