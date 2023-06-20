@@ -11,9 +11,8 @@ fs.readdirSync(pathRouter).filter(async (file) => {
 	let skip: boolean;
 	fileWWithOutExt ? (skip = ['index'].includes(fileWWithOutExt)) : (skip = false);
 	if (!skip) {
-		console.log('🚀 👍 ~ fs.readdirSync ~ fileWWithOutExt:', fileWWithOutExt);
 		const module = await import(`./${fileWWithOutExt}.ts`);
 		router.use(`/${fileWWithOutExt}`, module.router);
-		console.log('LOAD ROUTE   -->', fileWWithOutExt.toUpperCase());
+		console.log('LOAD ROUTE     -->', fileWWithOutExt.toUpperCase());
 	}
 });
